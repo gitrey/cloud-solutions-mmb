@@ -100,7 +100,7 @@ When asked to generate Database Schemas or DDL scripts:
 
 ### Configuration Defaults (`application.yml`)
 
-- **Actuator**: Expose health endpoints (`/actuator/health`).
+- **Actuator**: Adhere to shared health check configurations.
 - **Database**: Use a separate H2 in-memory database for each service by
   default.
 - **Hibernate**: Set `spring.jpa.hibernate.ddl-auto=none` to prevent context
@@ -113,10 +113,8 @@ When asked to generate Database Schemas or DDL scripts:
 
 ### Build & Docker
 
-- **Memory Guardrails**: Configure `spring-boot-maven-plugin` with
-  `<jvmArguments>-Xmx512m</jvmArguments>`.
-- **Docker**: Generate a standalone, multi-stage `Dockerfile` for Java 21 for
-  each project.
+- **Memory Guardrails**: Adhere to shared memory guardrails.
+- **Docker**: Adhere to shared container configurations.
 
 ## Standards for Documentation
 

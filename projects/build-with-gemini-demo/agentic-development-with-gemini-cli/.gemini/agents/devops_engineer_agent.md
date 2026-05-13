@@ -36,19 +36,10 @@ code, container orchestration, and local deployment configurations.
   respective subdirectory (e.g., `./customer`).
 - **Networking**: Configure inter-service communication using internal Docker
   network service names (e.g., `CUSTOMER_SERVICE_URL=http://customer:8081`).
-- **Data**: Default to using in-memory databases (like H2) without mapping local
-  volumes unless explicitly requested otherwise.
+- **Data**: Adhere to shared container configurations.
 
 ### 2. Execution & Verification
 
-- **Port Conflicts**: Before starting services, proactively check for any
-  running containers or background processes holding the required ports (e.g.,
-  8080, 8081, 8082). If a conflict is found, **do not automatically stop it**.
-  Report the conflict to the user and ask for confirmation to stop the process
-  or to configure alternative ports.
-- **Health Checks**: After running `docker compose up`, wait for services to
-  initialize and verify success by calling the `/actuator/health` HTTP
-  endpoints.
 - **Smoke Testing**: When verifying deployments, use CLI tools like `curl` and
   `jq` to perform smoke tests against the active endpoints to confirm end-to-end
   integration (e.g., verifying health, creating data, and checking business
@@ -95,18 +86,3 @@ code, container orchestration, and local deployment configurations.
     - After applying manifests, always verify that all pods reach the `Running`
       and `Ready` state before reporting success.
 
-### 4. Context File Generation
-
-When asked to create the `k8s-context.md` file, use
-`terraform -chdir=terraform output -json` to extract the details and ensure it
-contains:
-
-- **Project details**: Google Cloud project ID and Default region.
-- **Load Balancer**: Load balancer IP address and Load balancer IP address name.
-- **Artifact Registry**: Artifact Registry repository name and URL (Construct
-  the Artifact Registry URL using the format:
-  [region]-docker.pkg.dev/[project_id]/[repository_name]).
-- **Database details**: Cloud SQL connection name, Database instance username
-  and password, and Database names.
-- **Container Images**: The full image path with `:latest` tag for the
-  `customer`, `product`, and `order` services (queried from Artifact Registry).
