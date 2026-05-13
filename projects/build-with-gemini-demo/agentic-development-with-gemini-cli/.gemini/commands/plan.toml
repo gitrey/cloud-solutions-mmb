@@ -1,0 +1,5 @@
+description = "Plan infrastructure changes"
+prompt = """
+Analyze the current Terraform and Kubernetes descriptors, check for necessary infrastructure changes to fulfill the requirements, and generate a step-by-step deployment plan.
+Do not apply changes automatically. Wait for user approval.
+"""

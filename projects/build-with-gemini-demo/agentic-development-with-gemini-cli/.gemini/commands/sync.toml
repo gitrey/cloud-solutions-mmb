@@ -1,0 +1,12 @@
+description = "Generate deployment context"
+prompt = """
+Extract infrastructure details from Terraform outputs and build artifacts into a single shared session state file named `k8s-context.md`.
+Use `terraform -chdir=terraform output -json` to extract the details and ensure it contains:
+- **Project details**: Google Cloud project ID and Default region.
+- **Load Balancer**: Load balancer IP address and Load balancer IP address name.
+- **Artifact Registry**: Artifact Registry repository name and URL (Construct the Artifact Registry URL using the format: [region]-docker.pkg.dev/[project_id]/[repository_name]).
+- **Database details**: Cloud SQL connection name, Database instance username and password, and Database names.
+- **Container Images**: The full image path with `:latest` tag for the `customer`, `product`, and `order` services (queried from Artifact Registry).
+
+Ensure this updated context is written to the shared session state file (`k8s-context.md`) so that the Builder agent can access it without manual user intervention.
+"""

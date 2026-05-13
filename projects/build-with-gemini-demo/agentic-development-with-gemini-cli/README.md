@@ -26,7 +26,8 @@ The guide includes the following steps:
 1.  **Run the application locally:** Execute and test the fully integrated
     microservices locally to validate all API endpoints.
 1.  **Deploy the application:** Containerize services, generate deployment
-    descriptors, and provision Google Cloud infrastructure for GKE deployment.
+    descriptors, and provision Google Cloud infrastructure for GKE deployment
+    (infrastructure synchronization is fully automated via background hooks).
 
 ## Subagent strategy
 
@@ -693,6 +694,7 @@ Leave the Gemini CLI terminal running, and open a new terminal in your shell:
 ### Build container images
 
 Build and push container images to Artifact Registry using Google Cloud Build.
+*Note: Due to automated background hooks, the `k8s-context.md` context file is automatically synchronized with Terraform and Artifact Registry outputs without manual intervention.*
 
 1.  Build the container images for all three services:
 
@@ -706,26 +708,6 @@ Build and push container images to Artifact Registry using Google Cloud Build.
 
 1.  Wait for the [builds](https://console.cloud.google.com/cloud-build/builds)
     to complete. This process takes several minutes.
-
-### Create deployment context
-
-In this section, you collect all infrastructure details from Terraform outputs
-and build artifacts into a single context file named `k8s-context.md`. Gemini
-CLI uses this file to get the necessary context to interact with the Google
-Cloud infrastructure.
-
-1.  Send the following prompt to the DevOps Agent to create the context file:
-
-    ```markdown
-    @devops_engineer_agent Create the `k8s-context.md` file with the required
-    information from Terraform outputs and Artifact Registry.
-    ```
-
-    Sample output:
-
-    ```markdown
-    ✦ Okay, the k8s-context.md file has been created.
-    ```
 
 ## Generate Kubernetes configuration
 

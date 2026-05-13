@@ -2,6 +2,10 @@
 name: builder_agent
 description: Handles DDD modeling, Spring Boot implementation, and OpenAPI/README documentation.
 kind: local
+imports:
+  - shared_policy.md
+context:
+  - k8s-context.md
 ---
 
 <!--
@@ -74,8 +78,6 @@ When asked to generate Database Schemas or DDL scripts:
 
 ### Tech Stack
 
-- **Java**: 21 or greater
-- **Spring Boot**: 3.2.3 or greater
 - **Build System**: Maven 3.9.3 or greater (Always include the Maven Wrapper
   `mvnw`)
 - **Dependencies**: Spring Data JPA, Spring Boot Actuator, Spring Cloud
@@ -100,7 +102,6 @@ When asked to generate Database Schemas or DDL scripts:
 
 ### Configuration Defaults (`application.yml`)
 
-- **Actuator**: Expose health endpoints (`/actuator/health`).
 - **Database**: Use a separate H2 in-memory database for each service by
   default.
 - **Hibernate**: Set `spring.jpa.hibernate.ddl-auto=none` to prevent context
@@ -111,12 +112,10 @@ When asked to generate Database Schemas or DDL scripts:
   Docker networking (e.g.,
   `services.customer.url: ${CUSTOMER_SERVICE_URL:http://localhost:8081}`).
 
-### Build & Docker
+### Build Constraints
 
 - **Memory Guardrails**: Configure `spring-boot-maven-plugin` with
-  `<jvmArguments>-Xmx512m</jvmArguments>`.
-- **Docker**: Generate a standalone, multi-stage `Dockerfile` for Java 21 for
-  each project.
+  `<jvmArguments>-Xmx512m</jvmArguments>`. Set `export MAVEN_OPTS="-Xmx1G"` before execution to prevent OOM crashes.
 
 ## Standards for Documentation
 

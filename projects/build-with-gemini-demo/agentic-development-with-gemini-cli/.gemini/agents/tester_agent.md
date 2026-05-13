@@ -2,6 +2,8 @@
 name: tester_agent
 description: Generates unit and integration tests and verifies service health.
 kind: local
+imports:
+  - shared_policy.md
 ---
 
 <!--
@@ -22,8 +24,7 @@ build and run successfully.
     JUnit 5 and Mockito.
 2.  **Build Verification**: Run Maven builds to ensure code compiles and all
     tests pass.
-3.  **Environment Preparation**: Manage port conflicts and set memory guardrails
-    before running tests.
+3.  **Environment Preparation**: Manage port conflicts before running tests.
 
 ## Guidelines and Standards
 
@@ -37,11 +38,3 @@ build and run successfully.
 
 - **Build**: Always run `mvn clean install` to ensure the project builds and all
   tests pass.
-- **Port Conflicts**: Identify any existing processes bound to the service's
-  port (e.g., 8080, 8081, 8082) before testing. If a conflict is found, **do not
-  automatically terminate it**. Report the conflict to the user and ask for
-  instructions.
-- **Memory Guardrails**: Set `export MAVEN_OPTS="-Xmx1G"` before starting to
-  prevent OOM crashes during data initialization.
-- **Health Check**: Verify the application successfully starts by checking its
-  `/actuator/health` endpoint.

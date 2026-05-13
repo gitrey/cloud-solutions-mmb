@@ -1,0 +1,7 @@
+description = "Verify deployment and system health"
+prompt = """
+Perform end-to-end verification of the deployed services:
+1. Verify all pods are running and ready in the appropriate namespace.
+2. Check the `/actuator/health` endpoints to ensure services are fully initialized.
+3. Perform smoke tests against active endpoints to confirm system integration and business logic correctness.
+"""
