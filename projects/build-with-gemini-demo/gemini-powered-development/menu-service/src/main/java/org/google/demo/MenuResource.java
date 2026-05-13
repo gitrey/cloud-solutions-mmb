@@ -59,7 +59,14 @@ public class MenuResource {
   @GET
   @Path("{id}")
   public Menu get(@PathParam("id") Long id) throws Exception {
-    return menuRepository.findById(id);
+    Menu entity = menuRepository.findById(id);
+    if (entity == null) {
+      throw new WebApplicationException(
+          Response.status(Response.Status.NOT_FOUND)
+              .entity("Menu item with id " + id + " does not exist")
+              .build());
+    }
+    return entity;
   }
 
   /**
@@ -125,11 +132,14 @@ public class MenuResource {
   @PUT
   @Transactional
   @Path("{id}")
-  public Menu update(@PathParam("id") Long id, Menu menu) {
+  public Menu update(@PathParam("id") Long id, MenuUpdateDTO menu) {
 
     Menu entity = menuRepository.findById(id);
     if (entity == null) {
-      throw new WebApplicationException("Menu item with id" + id + "does not exist", 404);
+      throw new WebApplicationException(
+          Response.status(Response.Status.NOT_FOUND)
+              .entity("Menu item with id " + id + " does not exist")
+              .build());
     }
 
     if (menu.itemName != null) {
@@ -141,7 +151,9 @@ public class MenuResource {
     if (menu.tagLine != null) {
       entity.tagLine = menu.tagLine;
     }
-    entity.spiceLevel = menu.spiceLevel;
+    if (menu.spiceLevel != null) {
+      entity.spiceLevel = menu.spiceLevel;
+    }
     if (menu.itemImageUrl != null) {
       entity.itemImageUrl = menu.itemImageUrl;
     }
@@ -167,7 +179,10 @@ public class MenuResource {
   public Response delete(@PathParam("id") Long id) {
     Menu entity = menuRepository.findById(id);
     if (entity == null) {
-      throw new WebApplicationException("Menu item with id" + id + "does not exist", 404);
+      throw new WebApplicationException(
+          Response.status(Response.Status.NOT_FOUND)
+              .entity("Menu item with id " + id + " does not exist")
+              .build());
     }
     menuRepository.delete(entity);
     return Response.status(204).build();
