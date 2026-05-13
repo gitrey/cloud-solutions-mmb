@@ -1,0 +1,99 @@
+#
+# Copyright 2024 Google LLC
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+site_name: Cloud Solutions
+site_url: https://googlecloudplatform.github.io/cloud-solutions/
+docs_dir: docs
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    primary: #006CBE
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      info: fontawesome/solid/user-shield
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: G-TX7HG7NJWJ
+  consent:
+    title: Cookie consent
+    description: >-
+      This site uses cookies to recognize your repeated visits, as well as to
+      measure the effectiveness of this documentation. With your consent, your
+      data can be shared with trusted partners. You can change your choice at
+      any time.
+extra_css:
+  - stylesheets/extra.css
+repo_name: cloud-solutions
+repo_url: https://github.com/GoogleCloudPlatform/cloud-solutions
+copyright: |
+  The projects contained in this repository are maintained by the Google Cloud Solutions Architects team.<br>
+  Copyright &copy; 2019-YYYY Google LLC  <a href="#__consent" style="float:right; font-size: 10px;">Change cookie settings</a><br>
+  <a href='https://cloud.google.com/'><img src='https://googlecloudplatform.github.io/cloud-solutions/common/images/cloud.svg' width='240' height='160'/></a>
+plugins:
+  - search
+  - awesome-pages:
+      filename: .pages
+      collapse_single_pages: true
+  - mkdocstrings
+markdown_extensions:
+  - admonition
+  - attr_list
+  - fenced_code
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.highlight:
+      pygments_lang_class: true
+      line_spans: __span
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - toc:
+      permalink: true
+
+not_in_nav: |
+  /google13f96ebf51862cf4.html
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+  nav:
+    # the '/...' in nav config raises an absolute_links warning
+    # so downgrade to info
+    absolute_links: info
+
+exclude_docs: |
+  alloydb-autoscaler/
