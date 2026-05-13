@@ -74,6 +74,10 @@ This keeps your prompts concise and focused on the actual work.
     - Benefit: Can be granted specific tools to perform environment checks and
       deployments securely.
 
+- **The Coordinator Agent (`coordinator_agent`)**
+    - Purpose: Acts as a centralized authority to autonomously orchestrate the Builder, Tester, and DevOps agents without manual user intervention.
+    - Benefit: Provides a single interface to run a complete, hands-off build-test-deploy cycle.
+
 ## Requirements
 
 To run this demo, you need the following:
@@ -112,6 +116,28 @@ microservices.
     git checkout
     cd projects/build-with-gemini-demo/agentic-development-with-gemini-cli
     ```
+
+## Fully Autonomous Workflow
+
+With the introduction of the Coordinator Agent, you no longer need to execute manual prompt-and-wait handoffs. You can trigger a full build-test-deploy cycle using a single top-level command.
+
+1.  Start Gemini CLI:
+
+    ```bash
+    gemini
+    ```
+
+2.  Run the following single command to orchestrate the entire process:
+
+    ```markdown
+    @coordinator_agent Please implement an e-commerce order management system with a core domain "Order Management" and supporting domains "Customer" and "Product", and deploy it to staging.
+    ```
+
+    The coordinator will handle the entire lifecycle—tasking the builder to write code, the tester to verify it, and the DevOps agent to deploy it—all while maintaining a unified status stream.
+
+## Manual Step-by-Step Workflow
+
+If you prefer to run the steps manually, follow the sections below.
 
 ## Generate the domain model
 

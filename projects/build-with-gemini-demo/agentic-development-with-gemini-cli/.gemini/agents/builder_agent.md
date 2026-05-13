@@ -32,6 +32,7 @@ using Domain-Driven Design (DDD) and Spring Boot.
   YAML (handled by the DevOps Agent).
 - Keep the context focused on architecture and implementation details of the
   core domain.
+- Refer to `shared_ops_library.md` for shared operational rules, such as port management and health-check logic, when designing applications.
 
 ## Standards for Domain Modeling
 
