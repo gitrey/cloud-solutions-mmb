@@ -14,9 +14,10 @@
 - [x] Create `docs/PROGRESS.md` update.
 
 ### Current Status
-- Tasks re-assigned and in progress.
-- PM agent has sent spec/backlog contents directly to SWEs.
-- **Investigating:** Availability and location of the `agy` (Antigravity CLI) tool. 
-- SWE-1: Working on guide creation; currently searching for the `agy` tool.
-- SWE-2: Waiting for SWE-1's draft.
-- Git push issues: Advised team to use direct messages for sharing draft contents.
+- Tasks re-assigned and in progress (local).
+- **Project Status (PO):** Blocked (Stale GITHUB_TOKEN).
+- **Mitigation:** Continuing development locally to meet project timelines. Content sharing via agent messaging.
+- **Identified:** `agy` installation via `curl -fsSL https://antigravity.google/cli/install.sh | bash`. Binary located at `~/.local/bin/agy`.
+- **New Technical Blocker:** `agy` requires interactive login, which is not supported in the agent environment.
+- SWE-1: Shared full guide content via message. Review in progress.
+- SWE-2: Received guide content; ready to verify once `agy` authentication is resolved.
