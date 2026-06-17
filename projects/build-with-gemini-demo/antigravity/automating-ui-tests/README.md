@@ -27,7 +27,11 @@ curl -fsSL https://antigravity.google/cli/install.sh | bash
 
 The binary will be installed to `~/.local/bin/agy`. Ensure this directory is in your `PATH`.
 
-> **Note:** Initializing `agy` for the first time may require an interactive login (`/login`). If you are running in a non-interactive environment, ensure you have pre-authenticated or use a service account token if supported.
+> **Authentication Note:** Initializing `agy` for the first time usually requires an interactive login (`/login`). For non-interactive environments or CI/CD pipelines, you can bypass this by setting the `ANTIGRAVITY_TOKEN` environment variable:
+>
+> ```bash
+> export ANTIGRAVITY_TOKEN=your-token-here
+> ```
 
 ## Clone Git Repository
 
