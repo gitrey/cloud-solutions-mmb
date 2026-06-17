@@ -1,6 +1,6 @@
 # Product Backlog
 
-## Antigravity UI Automation Reference Guide (F-0001) [Status: Blocked (Git Push)]
+## Antigravity UI Automation Reference Guide (F-0001) [Status: Blocked (agy Auth)]
 
 | ID | Task | Priority | Scope | Dependencies | Spec Link | Assigned To | Status |
 |----|------|----------|-------|--------------|-----------|-------------|--------|
