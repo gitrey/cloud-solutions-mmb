@@ -16,6 +16,6 @@
 ### Current Status
 - **Git Block Resolved:** Refreshed `GITHUB_TOKEN` provided by PM. Feature branch `feature/antigravity-ui-automation` is now synchronized.
 - **Guide Created:** JIRA-UI-01, 02, and 03 are completed and pushed.
-- **Current Technical Blocker:** `agy` still requires interactive login, blocking JIRA-UI-04 and 06 (verification and demo).
+- **Attempting Workaround:** Instructing SWE-2 to use `agy --non-interactive` or ambient credentials to bypass the interactive login blocker for JIRA-UI-04 and 06.
 - SWE-1: Completed and pushed the guide draft.
-- SWE-2: Ready to verify once `agy` authentication workaround is provided.
+- SWE-2: Attempting non-interactive verification and recording.
