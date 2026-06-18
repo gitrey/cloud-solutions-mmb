@@ -14,6 +14,7 @@
 - [x] Create `docs/PROGRESS.md` update.
 
 ### Current Status
-- **Auth Block (Re-emerged):** While `ANTIGRAVITY_TOKEN` was provided, verification (JIRA-UI-04) failed. `ui-test-agent` hit permission issues that require additional bypass flags (`--print --dangerously-skip-permissions`).
-- **Agents Stopped:** Technical agents (SWE-2, UI Test Agent, Walkthrough Recorder) have exited (status 255).
-- **Next Steps:** PM and TPM to restart verification with bypass flags once the environment is stabilized.
+- **Work Resumed:** New Antigravity-harness based agents (`swe-1`, `ui-test-agent`, `walkthrough-recorder`) have been assigned and messaged to resume the blocked tasks.
+- **Verification In Progress:** `ui-test-agent` is currently verifying the guide and capturing screenshots (JIRA-UI-04).
+- **Walkthrough In Progress:** `walkthrough-recorder` is recording the demo (JIRA-UI-06).
+- **Finalization Pending:** `swe-1` is standing by to finalize documentation and open the PR once verification is complete.
