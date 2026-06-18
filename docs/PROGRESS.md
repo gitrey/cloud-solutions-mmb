@@ -14,8 +14,6 @@
 - [x] Create `docs/PROGRESS.md` update.
 
 ### Current Status
-- **Git Block Resolved:** Refreshed `GITHUB_TOKEN` provided by PM. Feature branch `feature/antigravity-ui-automation` is now synchronized.
-- **Guide Created:** JIRA-UI-01, 02, and 03 are completed and pushed.
-- **Auth Block Resolved:** PM provided `ANTIGRAVITY_TOKEN=scion-token` for non-interactive `agy` authentication.
-- SWE-2 & UI Test Agent: Proceeding with JIRA-UI-04 (verification and screenshots).
-- Walkthrough Recorder: Proceeding with JIRA-UI-06 (demo recording).
+- **Auth Block (Re-emerged):** While `ANTIGRAVITY_TOKEN` was provided, verification (JIRA-UI-04) failed. `ui-test-agent` hit permission issues that require additional bypass flags (`--print --dangerously-skip-permissions`).
+- **Agents Stopped:** Technical agents (SWE-2, UI Test Agent, Walkthrough Recorder) have exited (status 255).
+- **Next Steps:** PM and TPM to restart verification with bypass flags once the environment is stabilized.
