@@ -2,6 +2,8 @@
 
 ![Automated Code Review Flow](flow.png)
 
+[📺 Watch the Antigravity CLI Code Review Video Demo](https://www.youtube.com/watch?v=BZ6gVNXqzcA)
+
 This guide demonstrates how to integrate the Antigravity CLI in non-interactive
 mode - without requiring any user input - within GitHub Actions workflows to
 automate various development tasks. By leveraging Antigravity's capabilities
